@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&amp;display=swap');
+      * { font-family: 'Onest', system-ui, sans-serif; }
+      .bg-rect { fill: #00182E; }
+      .connection-line {
+        stroke: #123a62;
+        stroke-width: 3;
+        stroke-dasharray: 8 8;
+        animation: dash 30s linear infinite;
+      }
+      .connection-line-glow {
+        stroke: #013ff6;
+        stroke-width: 6;
+        stroke-dasharray: 8 8;
+        opacity: 0.3;
+        filter: blur(4px);
+        animation: dash 30s linear infinite;
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -1000; }
+      }
+      .node-group {
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .node-group:hover {
+        transform: scale(1.08);
+      }
+      .node-card {
+        fill: #0d2d4d;
+        stroke: #123a62;
+        stroke-width: 2;
+        transition: all 0.3s ease;
+      }
+      .node-group:hover .node-card {
+        fill: #123a62;
+        stroke: #ACEC00;
+        filter: drop-shadow(0 0 12px rgba(172, 236, 0, 0.3));
+      }
+      .node-text {
+        fill: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        text-anchor: middle;
+        pointer-events: none;
+      }
+      .node-icon-bg {
+        fill: #013ff6;
+        transition: all 0.3s ease;
+      }
+      .node-group:hover .node-icon-bg {
+        fill: #ACEC00;
+      }
+      .center-circle {
+        fill: #0a2440;
+        stroke: #013ff6;
+        stroke-width: 4;
+        filter: drop-shadow(0 0 30px rgba(1, 63, 246, 0.6));
+        transition: all 0.5s ease;
+      }
+      .center-circle:hover {
+        stroke: #ACEC00;
+        filter: drop-shadow(0 0 40px rgba(172, 236, 0, 0.6));
+      }
+      .center-text-main {
+        fill: #ffffff;
+        font-size: 32px;
+        font-weight: 800;
+        text-anchor: middle;
+        pointer-events: none;
+      }
+      .center-text-sub {
+        fill: #ACEC00;
+        font-size: 22px;
+        font-weight: 600;
+        text-anchor: middle;
+        pointer-events: none;
+      }
+      .ring {
+        fill: none;
+        stroke: #0a2440;
+        stroke-width: 1;
+      }
+    </style>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00182E" />
+      <stop offset="100%" stop-color="#001020" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgGrad)" />
+
+  <!-- Concentric Background Rings for depth -->
+  <circle cx="400" cy="400" r="150" class="ring" />
+  <circle cx="400" cy="400" r="280" class="ring" />
+  <circle cx="400" cy="400" r="410" class="ring" />
+
+  <!-- Connection Lines (behind nodes) -->
+  <g class="connections">
+    <!-- Glows -->
+    <line x1="400" y1="400" x2="400" y2="120" class="connection-line-glow" />
+    <line x1="400" y1="400" x2="642.5" y2="260" class="connection-line-glow" />
+    <line x1="400" y1="400" x2="642.5" y2="540" class="connection-line-glow" />
+    <line x1="400" y1="400" x2="400" y2="680" class="connection-line-glow" />
+    <line x1="400" y1="400" x2="157.5" y2="540" class="connection-line-glow" />
+    <line x1="400" y1="400" x2="157.5" y2="260" class="connection-line-glow" />
+    <!-- Core Lines -->
+    <line x1="400" y1="400" x2="400" y2="120" class="connection-line" />
+    <line x1="400" y1="400" x2="642.5" y2="260" class="connection-line" />
+    <line x1="400" y1="400" x2="642.5" y2="540" class="connection-line" />
+    <line x1="400" y1="400" x2="400" y2="680" class="connection-line" />
+    <line x1="400" y1="400" x2="157.5" y2="540" class="connection-line" />
+    <line x1="400" y1="400" x2="157.5" y2="260" class="connection-line" />
+  </g>
+
+  <!-- Node 1: Easy to Use (Top) -->
+  <g class="node-group">
+    <rect x="300" y="90" width="200" height="60" rx="30" class="node-card" />
+    <circle cx="330" cy="120" r="10" class="node-icon-bg" />
+    <text x="420" y="125" class="node-text">Easy to Use</text>
+  </g>
+
+  <!-- Node 2: Real-Time Protection (Top Right) -->
+  <g class="node-group">
+    <rect x="542.5" y="230" width="200" height="60" rx="30" class="node-card" />
+    <circle cx="572.5" cy="260" r="10" class="node-icon-bg" />
+    <text x="662.5" y="265" class="node-text">Real-Time Protection</text>
+  </g>
+
+  <!-- Node 3: AI-Driven Analysis (Bottom Right) -->
+  <g class="node-group">
+    <rect x="542.5" y="510" width="200" height="60" rx="30" class="node-card" />
+    <circle cx="572.5" cy="540" r="10" class="node-icon-bg" />
+    <text x="662.5" y="545" class="node-text">AI-Driven Analysis</text>
+  </g>
+
+  <!-- Node 4: 24/7 Monitoring (Bottom) -->
+  <g class="node-group">
+    <rect x="300" y="650" width="200" height="60" rx="30" class="node-card" />
+    <circle cx="330" cy="680" r="10" class="node-icon-bg" />
+    <text x="420" y="685" class="node-text">24/7 Monitoring</text>
+  </g>
+
+  <!-- Node 5: Threat Intelligence (Bottom Left) -->
+  <g class="node-group">
+    <rect x="57.5" y="510" width="200" height="60" rx="30" class="node-card" />
+    <circle cx="87.5" cy="540" r="10" class="node-icon-bg" />
+    <text x="177.5" y="545" class="node-text">Threat Intelligence</text>
+  </g>
+
+  <!-- Node 6: Automated Responses (Top Left) -->
+  <g class="node-group">
+    <rect x="57.5" y="230" width="200" height="60" rx="30" class="node-card" />
+    <circle cx="87.5" cy="260" r="10" class="node-icon-bg" />
+    <text x="177.5" y="265" class="node-text">Automated Responses</text>
+  </g>
+
+  <!-- Center Hub -->
+  <g style="cursor: pointer;">
+    <circle cx="400" cy="400" r="90" class="center-circle" />
+    <text x="400" y="395" class="center-text-main">WebGuard</text>
+    <text x="400" y="430" class="center-text-sub">AI</text>
+  </g>
+</svg>
