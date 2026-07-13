@@ -1,0 +1,38 @@
+.page { display: flex; flex-direction: column; gap: 24px; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.breadcrumb { font-size: 0.825rem; color: var(--text-muted); margin-bottom: 8px; }
+.breadcrumb a { color: var(--text-muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--primary); }
+.header h2 { display: flex; align-items: center; gap: 10px; margin: 0; }
+
+.progressCard { display: flex; flex-direction: column; gap: 20px; }
+.statusRow { display: flex; align-items: center; justify-content: space-between; }
+.statusIndicator { font-size: 0.875rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.running { color: var(--primary); }
+.running::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); display: inline-block; animation: pulse-glow 1.5s infinite; }
+.done { color: var(--success); }
+.done::before { content: '✓'; }
+.fail { color: var(--danger); }
+.findingCount { font-size: 0.825rem; color: var(--text-muted); }
+
+.findingsHeader { display: flex; align-items: center; gap: 16px; }
+.findingsHeader h3 { margin: 0; }
+.live { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--danger); }
+.liveDot { width: 7px; height: 7px; border-radius: 50%; background: var(--danger); animation: pulse-glow 1s infinite; }
+
+.findingsList { display: flex; flex-direction: column; gap: 12px; }
+.findingCard { display: flex; flex-direction: column; gap: 10px; padding: 20px 24px; }
+.findingMeta { display: flex; align-items: center; gap: 12px; }
+.findingScanner { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+.findingTitle { font-size: 1rem; font-weight: 600; margin: 0; }
+.findingDesc { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
+.owasp { font-size: 0.75rem; color: var(--info); background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.2); border-radius: 6px; padding: 4px 10px; width: fit-content; }
+
+.waiting { display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 0.9rem; }
+
+/* ── Light Mode ──────────────────────────────── */
+
+:global([data-theme="light"]) .owasp {
+  background: rgba(37, 99, 235, 0.07);
+  border-color: rgba(37, 99, 235, 0.15);
+}

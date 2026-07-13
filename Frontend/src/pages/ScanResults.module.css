@@ -1,0 +1,173 @@
+.page {
+}
+
+.backLink {
+  padding: 0;
+  margin-bottom: 18px;
+  color: var(--text-muted);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.completed {
+  color: var(--primary);
+  border: 1px solid rgba(172, 236, 0, 0.36);
+  background: rgba(172, 236, 0, 0.1);
+}
+
+.pending {
+  color: var(--info);
+  border: 1px solid rgba(1, 63, 246, 0.4);
+  background: rgba(1, 63, 246, 0.16);
+}
+
+.meta {
+  display: flex;
+  gap: 16px 22px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.cardTitle {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.riskWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reportPlaceholder {
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.summaryCard {
+  margin-bottom: 30px;
+  border-color: rgba(172, 236, 0, 0.4);
+  background: linear-gradient(150deg, rgba(172, 236, 0, 0.1), rgba(1, 63, 246, 0.12));
+}
+
+.modelVerdictCard {
+  margin-bottom: 24px;
+  border-color: rgba(1, 63, 246, 0.4);
+  background: linear-gradient(155deg, rgba(1, 63, 246, 0.12), rgba(172, 236, 0, 0.08));
+}
+
+.summaryTitle {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+}
+
+.summaryText {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.modelVerdictBad {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.modelVerdictGood {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.findingsHeader {
+  margin-bottom: 14px;
+}
+
+.findingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.emptyFindings {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.okIcon {
+  opacity: 0.55;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+@media (max-width: 900px) {
+  .insights {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Light Mode ──────────────────────────────── */
+
+:global([data-theme="light"]) .completed {
+  border-color: rgba(90, 138, 0, 0.3);
+  background: rgba(90, 138, 0, 0.08);
+}
+
+:global([data-theme="light"]) .pending {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+:global([data-theme="light"]) .summaryCard {
+  border-color: rgba(90, 138, 0, 0.3);
+  background: linear-gradient(150deg, rgba(90, 138, 0, 0.07), rgba(37, 99, 235, 0.07));
+}
+
+:global([data-theme="light"]) .modelVerdictCard {
+  border-color: rgba(37, 99, 235, 0.3);
+  background: linear-gradient(155deg, rgba(37, 99, 235, 0.08), rgba(90, 138, 0, 0.06));
+}
