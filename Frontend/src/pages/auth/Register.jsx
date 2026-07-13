@@ -106,6 +106,28 @@ export default function Register() {
           <p>Start scanning for vulnerabilities in minutes.</p>
         </div>
 
+        {/* Test Account Button */}
+        <button
+          id="test-account-btn"
+          type="button"
+          className={styles.googleBtn}
+          style={{
+            background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+            color: '#000',
+            border: 'none',
+            fontWeight: '900',
+            fontSize: '1rem',
+            fontFamily: "'Cairo', sans-serif",
+            letterSpacing: '0.02em',
+            marginBottom: '10px',
+            boxShadow: '0 0 16px rgba(245,158,11,0.35)'
+          }}
+          onClick={loginAsTestAccount}
+          disabled={googleLoading || loading || testLoading}
+        >
+          {testLoading ? 'Loading…' : 'حساب مفتوح للتجريب'}
+        </button>
+
         {/* Google Sign-Up Button */}
         <button
           id="google-signup-btn"
@@ -116,17 +138,6 @@ export default function Register() {
         >
           <GoogleLogo />
           {googleLoading ? 'Signing up…' : 'Sign up with Google'}
-        </button>
-
-        {/* Test Account Button */}
-        <button
-          type="button"
-          className={styles.googleBtn}
-          style={{ marginTop: '12px', background: '#334155', color: '#fff', border: '1px solid #475569' }}
-          onClick={loginAsTestAccount}
-          disabled={googleLoading || loading || testLoading}
-        >
-          {testLoading ? 'Skipping Auth…' : 'Use Test Account (Skip Auth)'}
         </button>
 
         {/* Divider */}
