@@ -24,6 +24,7 @@ export default function Login() {
   const [error, setError]       = useState('');
   const [loading, setLoading]   = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [testLoading, setTestLoading] = useState(false);
   const { setAuth }             = useAuthStore();
   const navigate                = useNavigate();
 
@@ -73,6 +74,20 @@ export default function Login() {
     onError: () => setError('Google sign-in was cancelled or failed. Please try again.'),
   });
 
+  const loginAsTestAccount = async () => {
+    setError('');
+    setTestLoading(true);
+    try {
+      const res = await api.post('/auth/test-account');
+      setAuth(res.data.user, res.data.accessToken);
+      navigate('/dashboard');
+    } catch (err) {
+      setError('Test login failed. Please ensure the backend is running.');
+    } finally {
+      setTestLoading(false);
+    }
+  };
+
   return (
     <div className={styles.page}>
       <div className={styles.bg} />
@@ -99,10 +114,21 @@ export default function Login() {
           type="button"
           className={styles.googleBtn}
           onClick={() => loginWithGoogle()}
-          disabled={googleLoading || loading}
+          disabled={googleLoading || loading || testLoading}
         >
           <GoogleLogo />
           {googleLoading ? 'Signing in…' : 'Continue with Google'}
+        </button>
+
+        {/* Test Account Button */}
+        <button
+          type="button"
+          className={styles.googleBtn}
+          style={{ marginTop: '12px', background: '#334155', color: '#fff', border: '1px solid #475569' }}
+          onClick={loginAsTestAccount}
+          disabled={googleLoading || loading || testLoading}
+        >
+          {testLoading ? 'Skipping Auth…' : 'Use Test Account (Skip Auth)'}
         </button>
 
         {/* Divider */}
