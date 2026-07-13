@@ -245,4 +245,45 @@ const googleLogin = async (req, res, next) => {
   }
 };
 
-module.exports = { register, login, refresh, logout, getMe, googleLogin };
+// POST /api/auth/test-account
+// Instantly logs in as the teacher test account, creating it if it doesn't exist.
+const testLogin = async (req, res, next) => {
+  try {
+    const email = 'test-admin@saferest.ai';
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      user = await User.create({
+        name: 'Teacher Test Account',
+        email,
+        password: 'TestPassword123!', // Hardcoded test password
+      });
+    }
+
+    if (!user.isActive) {
+      user.isActive = true;
+    }
+
+    const accessToken = user.generateAccessToken();
+    const refreshToken = user.generateRefreshToken();
+
+    user.refreshToken = refreshToken;
+    user.lastLogin = new Date();
+    await user.save();
+
+    res.cookie('refreshToken', refreshToken, COOKIE_OPTIONS);
+
+    logger.info(`Test account login: ${user.email}`);
+
+    res.status(200).json({
+      success: true,
+      message: 'Test login successful.',
+      accessToken,
+      user: user.toJSON(),
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { register, login, refresh, logout, getMe, googleLogin, testLogin };
