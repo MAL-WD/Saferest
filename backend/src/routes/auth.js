@@ -4,7 +4,7 @@
 
 const { Router } = require('express');
 const Joi = require('joi');
-const { register, login, refresh, logout, getMe, googleLogin } = require('../controllers/authController');
+const { register, login, refresh, logout, getMe, googleLogin, testLogin } = require('../controllers/authController');
 const { protect } = require('../middleware/auth');
 const { loginLimiter } = require('../middleware/rateLimiter');
 const validate = require('../middleware/validate');
@@ -51,5 +51,8 @@ router.post('/google', loginLimiter, googleLogin);
 
 // GET /api/auth/me — requires valid access token
 router.get('/me', protect, getMe);
+
+// POST /api/auth/test-account — skip auth for teachers
+router.post('/test-account', testLogin);
 
 module.exports = router;
