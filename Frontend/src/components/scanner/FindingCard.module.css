@@ -1,0 +1,172 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+}
+
+.expanded {
+  border-color: var(--primary) !important;
+  box-shadow: 0 4px 20px rgba(172, 236, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.diffNew,
+.diffResolved {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.diffNew {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.diffResolved {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.titleRow h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-muted);
+}
+
+.scannerBadge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.body {
+  padding: 20px;
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section h5 {
+  margin: 0 0 8px 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.85rem !important;
+  color: var(--secondary) !important;
+  background: rgba(1, 63, 246, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.evidenceBlock {
+  margin: 0;
+  padding: 12px;
+  background: #000;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  font-size: 0.85rem;
+  color: #a3b8cc;
+}
+
+.refList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.refList li {
+  margin-bottom: 4px;
+}
+
+.refList a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.refList a:hover {
+  text-decoration: underline;
+}
+
+.iconHigh {
+  color: var(--danger);
+}
+.iconMed {
+  color: var(--warning);
+}
+.iconInfo {
+  color: var(--primary);
+}

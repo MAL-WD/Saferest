@@ -1,0 +1,88 @@
+.gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px;
+  border-radius: 24px;
+  background: rgba(13, 45, 77, 0.85);
+  border: 1px solid rgba(1, 63, 246, 0.1);
+  cursor: default;
+  transition:
+    transform var(--dash-duration) var(--dash-ease-spring),
+    border-color var(--dash-duration-fast) var(--dash-ease-smooth),
+    box-shadow var(--dash-duration) var(--dash-ease-out),
+    background var(--dash-duration-fast) var(--dash-ease-smooth);
+}
+
+.gauge:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(1, 63, 246, 0.35);
+  background: rgba(13, 45, 77, 1);
+  box-shadow: var(--dash-glow-blue);
+}
+
+.gauge:hover .progress {
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.gauge:hover .value {
+  transform: scale(1.08);
+}
+
+.ringWrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  transition: transform var(--dash-duration) var(--dash-ease-spring);
+}
+
+.gauge:hover .ringWrap {
+  transform: scale(1.05);
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress {
+  transition:
+    stroke-dashoffset 0.7s var(--dash-ease-out),
+    filter var(--dash-duration-fast) var(--dash-ease-smooth);
+}
+
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  transition: transform var(--dash-duration) var(--dash-ease-spring);
+}
+
+.max {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  transition: color var(--dash-duration-fast) var(--dash-ease-smooth);
+}
+
+.gauge:hover .label {
+  color: rgba(255, 255, 255, 0.85);
+}
